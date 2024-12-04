@@ -4,5 +4,12 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+I am a high school student in my final year, majoring in programming and computer science.
+
+I love low-level programming, cybersecurity-related stuff, and coffee. 
+
+Currently, I am studying for HackTheBox CPTS certification. I am planning on doing OSCP soon.
+
+I used to code a lot, but nowadays, I don't do it quite often. However, I am working on my own C compiler since I am deeply interested in how programming languages work.
+
+I made this blog, so I can share stuff that I learn with people and also share the progress of different CTFs.
