@@ -14,6 +14,7 @@ order: 1
 Here are my projects from the [TOP](https://www.theodinproject.com).
 
 [`Landing Page`](https://Zabsooon.github.io/Landing-Page)
+[`Etch A Sketch`](https://Zabsooon.github.io/Etch-A-Sketch)
 [`Calculator`](https://Zabsooon.github.io/TOP-Calculator)
 
 ### Github Projects
