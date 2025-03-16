@@ -13,9 +13,9 @@ order: 1
 #### The Odin Project Projects
 Here are my projects from the [TOP](https://www.theodinproject.com).
 
-[`Landing Page`](https://Zabsooon.github.io/Landing-Page)
-[`Etch A Sketch`](https://Zabsooon.github.io/Etch-A-Sketch)
-[`Calculator`](https://Zabsooon.github.io/TOP-Calculator)
+- [`Landing Page`](https://Zabsooon.github.io/Landing-Page)
+- [`Etch A Sketch`](https://Zabsooon.github.io/Etch-A-Sketch)
+- [`Calculator`](https://Zabsooon.github.io/TOP-Calculator)
 
 ### Github Projects
 Here is [my github](https://github.com/Zabsooon). 
