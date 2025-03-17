@@ -14,9 +14,18 @@ A **metric** is something that we use to *measure* something, and there are many
 We need them so we can compare them in different **scheduling policies**. For example:
 - **`Turnaround time(Performance metric)`**
     The turnaround time of a job is defined as the time at which the job completes minus the time at which the job arrived in the system.
-- **`(Fairness metric)`**
+- **`Response Time(Fairness metric)`**
+    The response time defined as a time from when the job arrives in a system
+    to the first time it is scheduled.
 
-### Basic Scheduling Models
+### Basic Scheduling Models(Based on Turnaround Time)
+We will make the following assumptions about the processes, that are running in the system:
+1. Each job runs for the same amount of time.
+2. All jobs arrive at the same time.
+3. Once started, each job runs to completion.
+4. All jobs only use the CPU(i.e., the perform no I/O).
+5. The run-time of each job is known.
+And we are going to improve the design by getting rid of assuption about process one by one.
 
 #### First In, First Out (FIFO)
 This is the most basic scheduling algorithm we can implement.
@@ -35,3 +44,17 @@ If a very long process is scheduled at `t=1`, and another very short process is 
 The second process would have to wait for the first one to complete anyways.
 
 #### Shortest Time-to-Completion First (STCF)
+This design of scheduling assume processes do not have to run to completion.
+Now whenever we have a very long process running, 
+we can switch context to shorter Time-to-Completion.
+And after the shorter processes are done we can go back to the longer one.
+
+### Basic Scheduling Models(Based on Response Time)
+
+#### Round Robin(RR)
+Instead running processes to completion, RR runs a process for a time slice
+(sometimes called a scheduling quantum) and then switches to the next job in the run queue.
+It does that repetatedly until all the processes are finished.
+Context switching requires balance, 
+because if we switch too often we will spend more time switching contexts
+than actaully running the process - this is called `amortization`.
