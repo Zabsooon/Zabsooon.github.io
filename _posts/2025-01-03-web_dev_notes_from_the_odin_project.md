@@ -11,7 +11,7 @@ This blog post is my approach on [The Odin Project](https://www.theodinproject.c
 
 ### Uncategorized
 
-- For viewing http codes [httpbin.org](http://httpbin.org/#/)
+- For viewing http codes [httpbin.org](https://httpbin.org/#/)
 
 ### CSS
 
