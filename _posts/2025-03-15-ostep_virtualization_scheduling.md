@@ -49,6 +49,8 @@ Now whenever we have a very long process running,
 we can switch context to shorter Time-to-Completion.
 And after the shorter processes are done we can go back to the longer one.
 
+# More Advanced Designs
+
 ## Basic Scheduling Models(Based on Response Time)
 
 ### Round Robin(**RR**)
@@ -90,3 +92,37 @@ before the **allotment** is up, it stays at the *same* `priority level`.
 To avoid the problem of `starvation` of the process we periodically **boost** the priority of
 all the processes in the system. Therefore another rule:
 - After some time period `S`, move all the processes in the system to the topmost queue.
+
+## Proportional Share(**Fair-share Scheduler**)
+This design principle focuses on sharing resources and providing processes with CPU% time.
+The percentage of CPU time is based on the amount of lottery tickets each process has.
+The process has more lottery tickets if it is run more often than others.
+
+## Stride Scheduling
+We do not have to do it randomly like in design above.
+We can assign a number to the process, which is a proportion of how much CPU% it will get.
+Then we take some big number and divide all of these numbers by it.
+For each of the process we get its `stride`.
+Now we just simply execute the process with the smallest `stride` and 
+increment it by its own value after the execution.
+
+## The Linux Completely Fair Scheduler (**CFS**)
+This is the default scheduler in Linux, unlike many traditional schedulers that uses fixed time slices,
+**CFS** uses a dynamic approach based on `vruntime` (virtual runtime).
+Each process accumulates `vruntime` as it runs, the process with the lowest one will be executed.
+There are two key parameters to ensure balance fairness and performance:
+- `sched_latency` which determines how long a process runs before being considered for a switch.
+It's devided by the number of active processes to calculate dynamic time slices.
+It is set to `48ms` by default.
+
+- `min_granularity` which ensures that no process runs with an overly small time slice,
+preventing excessive context switching.
+It is set to `6ms` by default.
+
+There is much more to it such as `Red-Black Trees`, but it is too specific for the implementation.
+
+### Adjusting process priority (**Niceness**)
+You can manually change process priorities by feature called `niceness`.
+The clasic **UNIX** mechanism enables processes to get a higher or lower share of the CPU.
+`Niceness` values range from `-20` (highest priority) to `+19` (lowest priority).
+The nicer you are the less you get.
